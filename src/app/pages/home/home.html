@@ -1,0 +1,100 @@
+<div class="home">
+
+  <header class="page-header">
+    <h2 class="title">Dashboard</h2>
+    <p class="subtitle">Visão geral das suas finanças</p>
+  </header>
+
+  <!-- Cards de Resumo -->
+  <section class="cards">
+
+    <!-- Saldo Total -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon primary">💼</div>
+        <div>
+          <p class="label">Saldo Total</p>
+          <h3>
+            {{ totalBalance | currency:'BRL':'symbol':'1.2-2' }}
+          </h3>
+        </div>
+      </div>
+      <div class="card-footer">
+        Atualizado em 24/01/2026
+      </div>
+    </div>
+
+    <!-- Entradas -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon income">📈</div>
+        <div>
+          <p class="label">Total de Entradas</p>
+          <h3 class="income">
+            {{ totalIncome | currency:'BRL':'symbol':'1.2-2' }}
+          </h3>
+        </div>
+      </div>
+      <div class="card-footer">Este mês</div>
+    </div>
+
+    <!-- Saídas -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon expense">📉</div>
+        <div>
+          <p class="label">Total de Saídas</p>
+          <h3 class="expense">
+            {{ totalExpenses | currency:'BRL':'symbol':'1.2-2' }}
+          </h3>
+        </div>
+      </div>
+      <div class="card-footer">Este mês</div>
+    </div>
+
+  </section>
+
+  <!-- Movimentações -->
+  <section class="transactions">
+
+    <div class="transactions-header">
+      <h3>Movimentações Recentes</h3>
+      <p>Últimas transações realizadas</p>
+    </div>
+
+    <div
+      class="transaction"
+      *ngFor="let transaction of recentTransactions">
+
+      <div class="left">
+        <div
+          class="icon"
+          [ngClass]="transaction.type">
+          {{ transaction.type === 'income' ? '↗' : '↘' }}
+        </div>
+
+        <div>
+          <p class="description">{{ transaction.description }}</p>
+          <small>
+            {{ transaction.category }} • {{ transaction.account }}
+          </small>
+        </div>
+      </div>
+
+      <div class="right">
+        <p
+          class="amount"
+          [ngClass]="transaction.type">
+          {{ transaction.type === 'income' ? '+' : '-' }}
+          {{ transaction.amount | currency:'BRL':'symbol':'1.2-2' }}
+        </p>
+        <small>
+          {{ transaction.date | date:'dd/MM/yyyy' }}
+        </small>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

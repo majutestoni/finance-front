@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+
+/* Core obrigatório */
+@include mat.core();
+
+/* Tema Material 3 – compatível com Angular atual */
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$green-palette,
+    tertiary: mat.$blue-palette
+  ),
+  typography: (
+    brand-family: 'Inter'
+  ),
+  density: (
+    scale: 0
+  )
+));
+
+/* Aplica o tema */
+@include mat.all-component-themes($theme);
