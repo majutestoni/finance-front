@@ -1,0 +1,33 @@
+<div class="page-geral">
+  <app-header
+    title="Contas Financeiras"
+    description="Cadastre e gerencia suas contas bancarias ou cateiras"
+  >
+  </app-header>
+
+  <section class="transactions">
+    <div class="transactions-header">
+      <h3>Contas cadastradas</h3>
+      <p>Contas já cadastradas</p>
+    </div>
+
+    <div class="transaction" *ngFor="let conta of contas">
+      <div class="left align-items-center">
+        <div class="icon">
+          <mat-icon [fontIcon]="defineIcon(conta.tipoConta)"> </mat-icon>
+        </div>
+        <div>
+          <p class="description">
+            {{ conta.apelido }} • {{ conta.numero }} • {{ conta.tipoConta | tipoConta }}
+          </p>
+        </div>
+      </div>
+
+      <div class="right">
+        <p class="amount">
+          {{ conta.saldo | currency: 'BRL' : 'symbol' : '1.2-2' }}
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

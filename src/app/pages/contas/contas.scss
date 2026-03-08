@@ -1,37 +1,16 @@
-
-/* Cards */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: var(--card);
-  color: var(--card-foreground);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 1.25rem;
-}
-
-.card-header {
+.page-geral {
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.card-footer {
-  margin-top: 1rem;
-  font-size: 0.75rem;
-  color: var(--muted-foreground);
-}
+/* Header */
 
 .label {
   font-size: 0.875rem;
   color: var(--muted-foreground);
 }
 
-/* Ícones */
 .icon {
   width: 44px;
   height: 44px;
@@ -67,7 +46,6 @@
   color: var(--danger);
 }
 
-/* Transações */
 .transactions {
   background: var(--card);
   border-radius: var(--radius);
@@ -90,9 +68,14 @@
   justify-content: space-between;
   padding: 1rem 1.25rem;
   transition: background 0.2s ease;
+  align-items: center;
 
   &:hover {
     background: var(--muted);
+  }
+
+  p {
+    margin-bottom: 0 !important;
   }
 }
 

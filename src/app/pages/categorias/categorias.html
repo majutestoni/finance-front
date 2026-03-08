@@ -1,0 +1,22 @@
+<div class="page-geral">
+  <app-header title="Categorias" description="Gerencie as categorias das suas transações">
+  </app-header>
+
+  <section class="card-principal">
+    <div>
+      <h2>Categorias de Entrada</h2>
+      <p>{{ categoriasEntrada.length }} categorias</p>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="cards">
+      <div *ngFor="let categoria of categoriasEntrada" class="card">
+        <div class="icon">
+          <mat-icon fontIcon="home"></mat-icon>
+        </div>
+        <h4>{{categoria.denominacao}}</h4>
+      </div>
+    </div>
+  </section>
+</div>

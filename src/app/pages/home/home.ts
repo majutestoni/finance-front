@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
+import { ComponentsModule } from '../../shared/compoents.module';
 
 export interface Transaction {
   id: string;
@@ -14,7 +15,7 @@ export interface Transaction {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, DatePipe],
+  imports: [CommonModule, CurrencyPipe, DatePipe, ComponentsModule],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })

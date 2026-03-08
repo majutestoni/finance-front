@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<header class="header">
+  <h1>{{ title() }}</h1>
+</header>
+
+<div class="sidebar">
+  @for (item of navItems; track item.path) {
+    <a [routerLink]="item.path" routerLinkActive="active" class="nav-item">
+      {{ item.label }}
+    </a>
+  }
+</div>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
