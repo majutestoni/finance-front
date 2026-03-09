@@ -28,6 +28,7 @@
   }
 }
 
+
 .card {
   display: flex;
   flex-direction: row;
@@ -37,19 +38,5 @@
   p {
     margin-left: 10px;
     margin-bottom: 0;
-  }
-}
-
-.entrada {
-  .icon {
-    background-color: #a2dca1ad;
-    color: #2d452d;
-  }
-}
-
-.saida {
-  .icon {
-    background-color: #dca1a1ae;
-    color: #552929;
   }
 }
