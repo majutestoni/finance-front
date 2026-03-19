@@ -1,32 +1,99 @@
-<div class="page-geral">
-  <app-header
-    title="Adicionar lançamento"
-    description="Registre uma nova entrada ou saída financeira"
-  >
-  </app-header>
+<div class="page">
+  <h2 class="title">Cadastrar Movimentação</h2>
+  <p class="subtitle">Registre uma nova entrada ou saída financeira</p>
 
-  <section class="card-principal">
-    <div class="card-title">
-      <div class="icon">
-        <mat-icon fontIcon="home"></mat-icon>
-      </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon">📈</div>
       <div>
-        <h4>Novo lançamento</h4>
+        <h3>Nova Movimentação</h3>
         <p>Preencha os dados da transação</p>
       </div>
     </div>
-    <div class="divisor"></div>
 
-    <h4>Tipo de lançamento</h4>
-    <div class="cards row w-100 g-3">
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <div class="card">
-          <div class="icon">
-            <mat-icon fontIcon="home"></mat-icon>
-          </div>
-          <p>aaaa</p>
+    <form (ngSubmit)="onSubmit()" class="form">
+      <!-- Tipo -->
+      <div>
+        <label>Tipo de Movimentação</label>
+
+        <div class="type-grid">
+          <button
+            *ngFor="let tipo of tiposMovimento"
+            type="button"
+            (click)="setType(tipo)"
+            [ngClass]="{
+              'active-income': formData.type === tipo && tipo === TipoMovimento.ENTRADA,
+              'active-expense': formData.type === tipo && tipo !== TipoMovimento.ENTRADA,
+            }"
+          >
+            {{ tipo | tipoMovimentoPipe }}
+          </button>
         </div>
       </div>
-    </div>
-  </section>
+
+      <!-- Descrição -->
+      <div>
+        <label>Descrição</label>
+        <textarea
+          [(ngModel)]="formData.description"
+          name="description"
+          rows="3"
+          placeholder="Ex: Compra no supermercado"
+          required
+        >
+        </textarea>
+      </div>
+
+      <!-- Valor + Data -->
+      <div class="grid-2">
+        <div>
+          <label>Valor</label>
+          <input
+            type="number"
+            [(ngModel)]="formData.amount"
+            name="amount"
+            placeholder="0.00"
+            required
+          />
+        </div>
+
+        <div>
+          <label>Data</label>
+          <input type="date" [(ngModel)]="formData.date" name="date" required />
+        </div>
+      </div>
+
+      <!-- Categoria + Conta -->
+      <div class="grid-2">
+        <div>
+          <label>Categoria</label>
+          <select [(ngModel)]="formData.category" name="category">
+            @for (cat of categories; track cat.value) {
+              <option [value]="cat.value" [disabled]="cat.disabled">
+                {{ cat.label }}
+              </option>
+            }
+          </select>
+        </div>
+
+        <div>
+          <label>Conta</label>
+          <select [(ngModel)]="formData.account" name="account">
+            @for (acc of accounts; track acc.value) {
+              <option [value]="acc.value" [disabled]="acc.disabled">
+                {{ acc.label }}
+              </option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="actions">
+        <button type="submit" class="primary">Salvar Movimentação</button>
+
+        <button type="button" class="secondary">Cancelar</button>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,11 +1,12 @@
-
-<label for="textarea">{{label}}</label>
-<textarea
-  [(ngModel)]="model"
-  [attr.rows]="rows"
-  [disabled]="disabled"
-  [placeholder]="placeholder"
-  [attr.aria-invalid]="invalid ? true : null"
-  class="textarea-base"
-  id="textarea"
-></textarea>
+<div class="form-group">
+  <label for="textarea">{{ label }}</label>
+  <textarea
+    [(ngModel)]="model"
+    [attr.rows]="rows"
+    [disabled]="disabled"
+    [placeholder]="placeholder"
+    [attr.aria-invalid]="invalid ? true : null"
+    class="textarea-base"
+    id="textarea"
+  ></textarea>
+</div>

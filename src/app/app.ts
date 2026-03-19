@@ -14,9 +14,10 @@ export class App {
 
   navItems = [
     { path: '/home', label: 'Home' },
-    { path: '/contas', label: 'Contas Financeiras' },
+    { path: '/movimento-financeiro', label: 'Adicionar lançamento' },
+    { path: '/contas', label: 'Contas financeiras' },
     { path: '/categorias', label: 'Categorias' },
-    { path: '/create-user', label: 'Criar Usuário' }
+    { path: '/usuario', label: 'Usuário' }
   ];
 
 }
